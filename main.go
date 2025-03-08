@@ -21,7 +21,7 @@ type user struct {
 var (
 	users = map[int]*user{}
 	seq   = 1
-	lock  = sync.Mutex{}
+lock  = sync.Mutex{}
 	// the version of the program
 	version string
 )
@@ -41,7 +41,8 @@ func createUser(c echo.Context) error {
 	}
 	users[u.ID] = u
 	seq++
-	return c.JSON(http.StatusCreated, u)
+	return c.JSON(http.StatusCreated, 
+		u)
 }
 
 func getUser(c echo.Context) error {
